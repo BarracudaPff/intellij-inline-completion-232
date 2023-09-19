@@ -16,7 +16,8 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("232.9921.28-EAP-SNAPSHOT")
+    version.set("2023.2.2")
+    type.set("IC")
     plugins.set(listOf(/* Plugin Dependencies */))
 }
 
