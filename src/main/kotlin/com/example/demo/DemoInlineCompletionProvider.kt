@@ -6,6 +6,13 @@ import com.intellij.codeInsight.inline.completion.DebouncedInlineCompletionProvi
 import com.intellij.codeInsight.inline.completion.InlineCompletionElement
 import com.intellij.codeInsight.inline.completion.InlineCompletionEvent
 import com.intellij.codeInsight.inline.completion.InlineCompletionRequest
+import io.ktor.client.*
+import io.ktor.client.engine.apache.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
