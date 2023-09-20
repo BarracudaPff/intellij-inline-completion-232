@@ -11,7 +11,7 @@ plugins {
 group = "com.example"
 version = "1.0-SNAPSHOT"
 
-val ktorVersion = "1.6.7"
+val ktorVersion = "2.3.4"
 
 repositories {
     mavenCentral()
@@ -33,7 +33,10 @@ dependencies {
     }
 //    implementation("io.ktor:ktor-client-json:$ktorVersion")
     implementation("io.ktor:ktor-client-apache:$ktorVersion") {
-        isTransitive = false
+        exclude("org.jetbrains.kotlin")
+        exclude("org.jetbrains.kotlinx")
+        exclude("org.slf4j")
+        exclude("io.ktor")
     }
 //    implementation("io.ktor:ktor-client-core:$ktorVersion")
 //    implementation("io.ktor:ktor-client-core-jvm:$ktorVersion")

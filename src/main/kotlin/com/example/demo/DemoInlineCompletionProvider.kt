@@ -8,8 +8,8 @@ import com.intellij.codeInsight.inline.completion.InlineCompletionEvent
 import com.intellij.codeInsight.inline.completion.InlineCompletionRequest
 import io.ktor.client.*
 import io.ktor.client.engine.apache.*
-import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.client.plugins.logging.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.serialization.kotlinx.json.*
@@ -31,6 +31,15 @@ class DemoInlineCompletionProvider : DebouncedInlineCompletionProvider() {
     }
 
     override suspend fun getProposalsDebounced(request: InlineCompletionRequest): Flow<InlineCompletionElement> {
+        val client = HttpClient(Apache) {
+            install(Logging)
+            install(ContentNegotiation) {
+                json()
+            }
+        }
+        val res = client.get("https://ktor.io/")
+        println(res.bodyAsText())
+
         return flow {
             emit("class DemoInlineCompletionProvider : DebouncedInlineCompletionProvider() {\n")
             delay(300)
