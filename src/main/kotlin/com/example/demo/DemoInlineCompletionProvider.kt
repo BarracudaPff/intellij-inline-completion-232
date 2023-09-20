@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 package com.example.demo
 
 import com.intellij.codeInsight.inline.completion.DebouncedInlineCompletionProvider
@@ -12,8 +14,14 @@ import kotlin.time.Duration.Companion.milliseconds
 
 class DemoInlineCompletionProvider : DebouncedInlineCompletionProvider() {
     override val delay = 300.milliseconds
-    override fun force(request: InlineCompletionRequest) = false
-    override fun isEnabled(event: InlineCompletionEvent) = true
+    override fun force(request: InlineCompletionRequest): Boolean {
+        return false
+    }
+
+    override fun isEnabled(event: InlineCompletionEvent): Boolean {
+        println(event::class.java)
+        return true
+    }
 
     override suspend fun getProposalsDebounced(request: InlineCompletionRequest): Flow<InlineCompletionElement> {
         return flow {
