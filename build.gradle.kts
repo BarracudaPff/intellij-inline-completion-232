@@ -29,17 +29,11 @@ dependencies {
 //    implementation("io.ktor:ktor-client-core:$ktorVersion")
 //    implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("io.ktor:ktor-client-gson:$ktorVersion") {
-        exclude("org.jetbrains.kotlin")
-        exclude("org.jetbrains.kotlinx")
-        exclude("org.slf4j")
-        exclude("io.ktor")
+        isTransitive = false
     }
 //    implementation("io.ktor:ktor-client-json:$ktorVersion")
     implementation("io.ktor:ktor-client-apache:$ktorVersion") {
-        exclude("org.jetbrains.kotlin")
-        exclude("org.jetbrains.kotlinx")
-        exclude("org.slf4j")
-        exclude("io.ktor")
+        isTransitive = false
     }
 //    implementation("io.ktor:ktor-client-core:$ktorVersion")
 //    implementation("io.ktor:ktor-client-core-jvm:$ktorVersion")
