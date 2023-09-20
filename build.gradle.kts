@@ -26,15 +26,25 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-    implementation("io.ktor:ktor-client-core:$ktorVersion") 
-    implementation("io.ktor:ktor-client-cio:$ktorVersion") 
-    implementation("io.ktor:ktor-client-gson:$ktorVersion") 
-    implementation("io.ktor:ktor-client-json:$ktorVersion") 
-    implementation("io.ktor:ktor-client-apache:$ktorVersion") 
-    implementation("io.ktor:ktor-client-core:$ktorVersion") 
-    implementation("io.ktor:ktor-client-core-jvm:$ktorVersion") 
-    implementation("io.ktor:ktor-client-cio-jvm:$ktorVersion") 
-    implementation("io.ktor:ktor-client-serialization:$ktorVersion") 
+//    implementation("io.ktor:ktor-client-core:$ktorVersion")
+//    implementation("io.ktor:ktor-client-cio:$ktorVersion")
+    implementation("io.ktor:ktor-client-gson:$ktorVersion") {
+        exclude("org.jetbrains.kotlin")
+        exclude("org.jetbrains.kotlinx")
+        exclude("org.slf4j")
+        exclude("io.ktor")
+    }
+//    implementation("io.ktor:ktor-client-json:$ktorVersion")
+    implementation("io.ktor:ktor-client-apache:$ktorVersion") {
+        exclude("org.jetbrains.kotlin")
+        exclude("org.jetbrains.kotlinx")
+        exclude("org.slf4j")
+        exclude("io.ktor")
+    }
+//    implementation("io.ktor:ktor-client-core:$ktorVersion")
+//    implementation("io.ktor:ktor-client-core-jvm:$ktorVersion")
+//    implementation("io.ktor:ktor-client-cio-jvm:$ktorVersion")
+//    implementation("io.ktor:ktor-client-serialization:$ktorVersion")
 
     implementation("org.apache.httpcomponents:httpclient:4.5.14")
     implementation("com.auth0:java-jwt:4.4.0")
