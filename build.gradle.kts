@@ -13,6 +13,14 @@ version = "1.0-SNAPSHOT"
 
 val ktorVersion = "2.3.4"
 
+configurations {
+    "implementation" {
+        exclude("org.jetbrains.kotlin")
+        exclude("org.jetbrains.kotlinx")
+        exclude("org.slf4j")
+    }
+}
+
 repositories {
     mavenCentral()
     maven(url = "https://www.jetbrains.com/intellij-repository/snapshots")
@@ -29,13 +37,10 @@ dependencies {
 //    implementation("io.ktor:ktor-client-core:$ktorVersion")
 //    implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("io.ktor:ktor-client-gson:$ktorVersion") {
-        isTransitive = false
+        exclude("io.ktor")
     }
 //    implementation("io.ktor:ktor-client-json:$ktorVersion")
     implementation("io.ktor:ktor-client-apache:$ktorVersion") {
-        exclude("org.jetbrains.kotlin")
-        exclude("org.jetbrains.kotlinx")
-        exclude("org.slf4j")
         exclude("io.ktor")
     }
 //    implementation("io.ktor:ktor-client-core:$ktorVersion")
