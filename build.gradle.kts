@@ -11,7 +11,7 @@ plugins {
 group = "com.example"
 version = "1.0-SNAPSHOT"
 
-val ktorVersion = "2.3.3"
+val ktorVersion = "1.6.7"
 
 repositories {
     mavenCentral()
