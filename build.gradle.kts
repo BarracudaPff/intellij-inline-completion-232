@@ -15,9 +15,8 @@ val ktorVersion = "2.3.4"
 
 configurations {
     "implementation" {
-        exclude("org.jetbrains.kotlin")
+        // exclude("org.jetbrains.kotlin") - not necessary for this case, but might be useful later
         exclude("org.jetbrains.kotlinx")
-        exclude("org.slf4j")
     }
 }
 
